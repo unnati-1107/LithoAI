@@ -1,0 +1,81 @@
+# LithoAI – AI-Based Semiconductor Process Monitoring
+
+## Project Overview
+
+LithoAI is a research project exploring the use of artificial intelligence and sensor data for semiconductor manufacturing process monitoring.
+
+The long-term research focuses on three areas:
+
+1. AI-based defect prediction using manufacturing sensor data.
+2. Overlay error prediction in semiconductor lithography.
+3. Optical Physical Unclonable Functions (PUFs).
+
+## Current Implementation
+
+The first experimental prototype uses the SECOM Semiconductor Manufacturing Dataset from the UCI Machine Learning Repository.
+
+The current implementation focuses on predicting semiconductor manufacturing Pass/Fail outcomes using sensor data.
+
+## Methodology
+
+- Dataset exploration and preprocessing
+- Missing-value analysis and mean imputation
+- Removal of constant features
+- Feature standardization
+- Handling class imbalance using SMOTE
+- Logistic Regression classification
+- Validation-based threshold selection
+- Final evaluation on an independent test set
+
+## Dataset
+
+- Original samples: 1,567
+- Original sensor features: 590
+- Features retained after missing-value filtering: 566
+- Final features after constant-feature removal: 444
+
+## Experimental Results
+
+**Model:** Logistic Regression with SMOTE
+
+**Selected threshold:** 0.1
+
+| Metric | Test Result |
+|---|---:|
+| Accuracy | 79.62% |
+| Fail Precision | 14% |
+| Fail Recall | 38% |
+| Fail F1-score | 20% |
+| Average Precision | 0.1115 |
+
+The model detected 8 out of 21 failure cases in the test dataset.
+
+## Limitations
+
+- The SECOM dataset contains Pass/Fail labels rather than direct lithography defect labels.
+- It does not provide direct overlay error measurements.
+- The dataset is highly imbalanced.
+- The current model produces a high number of false-positive predictions.
+- Overlay prediction and optical PUF research remain separate future research directions.
+
+## Tools and Technologies
+
+- Python
+- Google Colab
+- Pandas
+- NumPy
+- Scikit-learn
+- Imbalanced-learn
+- Matplotlib
+
+## Future Work
+
+- Explore additional classification models.
+- Improve failure detection and reduce false alarms.
+- Investigate explainable AI for identifying influential sensor features.
+- Explore datasets suitable for lithography overlay error prediction.
+- Investigate optical PUF-based semiconductor authentication.
+
+## Project Status
+
+Initial sensor-based Pass/Fail classification prototype completed. Further model improvement and research into the other two research directions are ongoing.
